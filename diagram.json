@@ -7,12 +7,13 @@
     {
       "type": "wokwi-relay-module",
       "id": "wokwi-relay-module-0",
-      "top": 163.4,
-      "left": 326.4,
+      "top": -141,
+      "left": -25.2,
+      "rotate": 270,
       "attrs": {}
     },
     { "type": "wokwi-neopixel", "id": "wokwi-neopixel-0", "top": 215, "left": 160, "attrs": {} },
-    { "type": "wokwi-buzzer", "id": "wokwi-buzzer-0", "top": 215, "left": 211, "attrs": {} },
+    { "type": "wokwi-buzzer", "id": "wokwi-buzzer-0", "top": -84, "left": -180.6, "attrs": {} },
     {
       "type": "wokwi-ntc-temperature-sensor",
       "id": "ntc1",
@@ -27,7 +28,12 @@
     [ "pico:GP1", "$serialMonitor:TX", "", [] ],
     [ "ntc1:OUT", "pico:GP26", "green", [ "h-144", "v19.3" ] ],
     [ "ntc1:VCC", "pico:VBUS", "red", [ "h-96", "v-76.8" ] ],
-    [ "ntc1:GND", "pico:GND.6", "black", [ "h-96", "v96" ] ]
+    [ "ntc1:GND", "pico:GND.6", "black", [ "h-96", "v96" ] ],
+    [ "wokwi-buzzer-0:2", "pico:GP3", "green", [ "v0" ] ],
+    [ "pico:GND.2", "wokwi-buzzer-0:1", "black", [ "h0" ] ],
+    [ "wokwi-relay-module-0:VCC", "pico:VBUS", "red", [ "v28.8", "h57.6" ] ],
+    [ "wokwi-relay-module-0:GND", "pico:GND.6", "black", [ "v9.6", "h66.8", "v86.4" ] ],
+    [ "wokwi-relay-module-0:IN", "pico:GP2", "green", [ "v19.2", "h-86.6", "v48" ] ]
   ],
   "dependencies": {}
 }
