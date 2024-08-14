@@ -10,6 +10,9 @@ Adafruit_NeoPixel pixels(NUMPIXELS, NEOPIXEL_PIN, NEO_GRB + NEO_KHZ800);
 
 const float BETA = 3950; // coefficient of the thermistor from wokwi docs
 
+const float FAN_THRESHOLD = 25.0; // temp to turn on the fan
+const float BUZZER_THRESHOLD = 30.0; // temp to turn on the sound
+
 void setup() {
   pixels.begin();
 
@@ -31,6 +34,18 @@ void loop() {
   Serial1.print("Temperature: ");
   Serial1.print(celsius);
   Serial1.println(" C");
+
+  if (celsius >= FAN_THRESHOLD) {
+    digitalWrite(RELAY_PIN, HIGH); 
+  } else {
+    digitalWrite(RELAY_PIN, LOW);
+  }
+
+  if (celsius >= BUZZER_THRESHOLD) {
+    digitalWrite(BUZZER_PIN, HIGH);  
+  } else {
+    digitalWrite(BUZZER_PIN, LOW); 
+  }
 
   delay(1000);
 }
