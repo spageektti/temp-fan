@@ -4,7 +4,6 @@
   "editor": "wokwi",
   "parts": [
     { "type": "board-pi-pico-w", "id": "pico", "top": 0, "left": 0, "attrs": {} },
-    { "type": "board-ds18b20", "id": "board-ds18b20-0", "top": 8.47, "left": 138.48, "attrs": {} },
     {
       "type": "wokwi-relay-module",
       "id": "wokwi-relay-module-0",
@@ -13,14 +12,22 @@
       "attrs": {}
     },
     { "type": "wokwi-neopixel", "id": "wokwi-neopixel-0", "top": 215, "left": 160, "attrs": {} },
-    { "type": "wokwi-buzzer", "id": "wokwi-buzzer-0", "top": 215, "left": 211, "attrs": {} }
+    { "type": "wokwi-buzzer", "id": "wokwi-buzzer-0", "top": 215, "left": 211, "attrs": {} },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": 21.4,
+      "left": 268.8,
+      "rotate": 180,
+      "attrs": {}
+    }
   ],
   "connections": [
     [ "pico:GP0", "$serialMonitor:RX", "", [] ],
     [ "pico:GP1", "$serialMonitor:TX", "", [] ],
-    [ "board-ds18b20-0:DQ", "pico:GP26", "green", [ "v57.6", "h-48", "v-9.6" ] ],
-    [ "board-ds18b20-0:GND", "pico:GND.7", "black", [ "v0" ] ],
-    [ "board-ds18b20-0:VCC", "pico:VBUS", "red", [ "v19.2", "h28.8", "v-76.8", "h-76.8" ] ]
+    [ "ntc1:OUT", "pico:GP26", "green", [ "h-144", "v19.3" ] ],
+    [ "ntc1:VCC", "pico:VBUS", "red", [ "h-96", "v-76.8" ] ],
+    [ "ntc1:GND", "pico:GND.6", "black", [ "h-96", "v96" ] ]
   ],
   "dependencies": {}
 }
