@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "author": "The Bin - Hack Club",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-pi-pico-w", "id": "pico", "top": 0, "left": 0, "attrs": {} },
+    { "type": "board-ds18b20", "id": "board-ds18b20-0", "top": 8.47, "left": 138.48, "attrs": {} },
+    {
+      "type": "wokwi-relay-module",
+      "id": "wokwi-relay-module-0",
+      "top": 163.4,
+      "left": 326.4,
+      "attrs": {}
+    },
+    { "type": "wokwi-neopixel", "id": "wokwi-neopixel-0", "top": 215, "left": 160, "attrs": {} },
+    { "type": "wokwi-buzzer", "id": "wokwi-buzzer-0", "top": 215, "left": 211, "attrs": {} }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "board-ds18b20-0:DQ", "pico:GP26", "green", [ "v57.6", "h-48", "v-9.6" ] ],
+    [ "board-ds18b20-0:GND", "pico:GND.7", "black", [ "v0" ] ],
+    [ "board-ds18b20-0:VCC", "pico:VBUS", "red", [ "v19.2", "h28.8", "v-76.8", "h-76.8" ] ]
+  ],
+  "dependencies": {}
+}
